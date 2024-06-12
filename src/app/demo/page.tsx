@@ -1,22 +1,10 @@
-import { openaiModel } from "@/server/ai/open-ai";
-import { generateText } from "ai";
-import { z } from "zod";
+import { openaiEmbeddingsModel } from "@/server/ai/open-ai";
+import { embed } from "ai";
 
 export default async function Page() {
-  const res = await generateText({
-    model: openaiModel,
-    prompt: "Hello, what day is it?",
-    tools: {
-      get_day: {
-        description: "get the day of the week",
-        parameters: z.object({}),
-        execute: async () => {
-          const today = new Date();
-          const day = today.getDay().toLocaleString();
-          return day;
-        },
-      },
-    },
+  const res = await embed({
+    model: openaiEmbeddingsModel,
+    value: "Apple",
   });
 
   console.log(res);

@@ -9,6 +9,8 @@ export const env = createEnv({
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
     OPENAI_API_KEY: z.string().min(1),
+    UPSTASH_URL: z.string().min(1),
+    UPSTASH_TOKEN: z.string().min(1)
   },
 
   /**
@@ -27,6 +29,8 @@ export const env = createEnv({
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    UPSTASH_TOKEN: process.env.UPSTASH_TOKEN,
+    UPSTASH_URL: process.env.UPSTASH_URL,
 
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
