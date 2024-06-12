@@ -9,5 +9,5 @@ export type FoodMetadata = {
 
 export const upstashIndex = new Index<FoodMetadata>({
   url: env.UPSTASH_URL,
-  token: env.UPSTASH_URL,
+  token: env.UPSTASH_TOKEN,
 });
