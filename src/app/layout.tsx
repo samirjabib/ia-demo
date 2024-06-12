@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 
 import { TRPCReactProvider } from "@/trpc/react";
+import { AI } from "./actions";
 
 export const metadata = {
   title: "AI Tutorial",
@@ -18,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} dark`}>
       <TRPCReactProvider>
-        <body>
-          {children}
-        </body>
+        <AI>
+          <body>{children}</body>
+        </AI>
       </TRPCReactProvider>
     </html>
   );
