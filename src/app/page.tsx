@@ -1,9 +1,5 @@
 "use client";
-
-import { SystemMessage } from "@/components/chat/SystemMessage";
 import { UserMessage } from "@/components/chat/UserMessage";
-import { CreateFood } from "@/components/foods/CreateFood";
-import { SearchFood } from "@/components/foods/SearchFood";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useActions, useUIState } from "ai/rsc";

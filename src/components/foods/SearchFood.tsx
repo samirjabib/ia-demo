@@ -1,9 +1,14 @@
+"use client";
+
 import { Label } from "@radix-ui/react-label";
 import { Card, CardContent, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
+import { useState } from "react";
 
-export const SearchFood: React.FC = ({ name }: { name: string }) => {
+export const SearchFood = ({ name }: { name: string }) => {
+  const [search, setSearch] = useState(name);
+
   return (
     <Card className="flex w-full flex-col gap-4 bg-neutral-900 p-8">
       <CardTitle>Search Food</CardTitle>
@@ -11,7 +16,11 @@ export const SearchFood: React.FC = ({ name }: { name: string }) => {
       <CardContent>
         <div>
           <Label>{name}</Label>
-          <Input type="text" placeholder="steak" />
+          <Input
+            type="text"
+            placeholder="steak"
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </div>
         <div className="flex flex-col gap-2 py-4">
           <div>

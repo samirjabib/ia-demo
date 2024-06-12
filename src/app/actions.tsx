@@ -4,10 +4,10 @@ import { createAI, getMutableAIState, streamUI } from "ai/rsc";
 import { openai } from "@ai-sdk/openai";
 import type { ReactNode } from "react";
 import { nanoid } from "nanoid";
+import { SystemMessage } from "@/components/chat/SystemMessage";
 import { z } from "zod";
 import { CreateFood } from "@/components/foods/CreateFood";
 import { SearchFood } from "@/components/foods/SearchFood";
-import { SystemMessage } from "@/components/chat/SystemMessage";
 
 export interface ServerMessage {
   role: "user" | "assistant";
@@ -28,7 +28,7 @@ export async function continueConversation(
   const history = getMutableAIState<typeof AI>();
 
   const result = await streamUI({
-    model: openai("gpt-4o"),
+    model: openai("gpt-3.5-turbo"),
     messages: [...history.get(), { role: "user", content: input }],
     text: ({ content, done }) => {
       if (done) {
